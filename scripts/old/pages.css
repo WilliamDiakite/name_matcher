@@ -1,0 +1,51 @@
+.page {
+  margin-top: 80px;
+  font-family: 'Roboto Condensed', sans-serif;
+}
+
+h2 {
+  margin: 0px;
+  font-size: 50px;
+  font-weight: 300;
+  margin-bottom: 50px;
+  text-align: center;
+}
+
+.field {
+  display: flex;
+  justify-content: center;
+}
+
+.label {
+  font-size: 25px;
+  margin-right: 25px;
+}
+
+.btn-list {
+  display: flex;
+  justify-content: center;
+}
+
+.ghost-button {
+  width: 200px;
+  height: 200px;
+  color: #282c34;
+  background: #fff;
+  border: 1px solid #61dafb;
+  font-size: 30px;
+  padding: 7px 12px;
+  font-weight: lighter;
+  margin: 6px 0;
+  margin-right: 25px;
+
+  text-decoration: none;
+  min-width: 120px;
+  text-align: center;
+  display: inline-block;
+  vertical-align: middle;
+}
+
+.ghost-button:hover, .ghost-button:active {
+ color:#fff;
+ background:#61dafb;
+}
