@@ -3,6 +3,7 @@ import './App.css';
 
 import First from './pages/first'
 import Upload from './pages/upload'
+import Reconcile from './pages/reconcile'
 import StatusBar from './components/status_bar'
 
 class App extends Component {
@@ -12,10 +13,11 @@ class App extends Component {
     this.state = {
         current_page: null,
         projName: null,
-        userFiles: [],
+        files: [],
         userProj: null,
     }
     this.updateProjName = this.updateProjName.bind(this)
+    this.updateUserFiles = this.updateUserFiles.bind(this)
   }
 
 
@@ -23,14 +25,14 @@ class App extends Component {
     // Update project name and load next page
     this.setState({
       projName: name,
-      current_page: <Upload />
+      current_page: <Upload updateUserFiles={this.updateUserFiles}/>
     })
-    console.log('App says: projName is', this.projName);
   }
 
-  updateUserFile(filename) {
+  updateUserFiles(files) {
     this.setState({
-      userFile: filename
+      files: files,
+      current_page: <Reconcile files={files} />
     })
   }
 
@@ -41,9 +43,11 @@ class App extends Component {
   }
 
   render() {
+    console.log('App says projName', this.state.projName);
     return (
       <div className="App">
         <header className="App-header">
+         <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet" />
          <link href="https://fonts.googleapis.com/css?family=Roboto+Condensed:300,400" rel="stylesheet"/>
           <h1>Artist name matcher</h1>
           <StatusBar />

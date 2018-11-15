@@ -1,13 +1,8 @@
 import React, { Component } from 'react';
 import './pages.css';
 
-import PropTypes from 'prop-types';
-import classNames from 'classnames';
-import { withStyles } from '@material-ui/core/styles';
 import TextField from '@material-ui/core/TextField';
 import Button from '@material-ui/core/Button'
-
-import Popup from 'react-popup';
 
 export default class First extends Component {
 
@@ -26,6 +21,7 @@ export default class First extends Component {
         //alert user for empty project name
       }
       else {
+        console.log(this.state.projName);
         this.props.update(this.state.projName)
       }
     }
@@ -60,7 +56,6 @@ export default class First extends Component {
             </Button>
           </div>
         </form>
-        <Popup />
       </div>
     )
   }

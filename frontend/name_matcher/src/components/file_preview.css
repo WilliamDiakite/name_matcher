@@ -1,0 +1,45 @@
+hr {
+  margin: 0;
+}
+
+.preview-header {
+  margin: 0;
+  display: flex;
+  justify-content: center;
+  margin-top: 50px;
+  margin-bottom: 30px;
+}
+
+.header-item-focused{
+  margin: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 50px;
+  width: 250px;
+  color: white;
+  font-family: 'Roboto Condensed', sans-serif;
+  background-color: purple;
+}
+
+.header-item{
+  margin: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 50px;
+  width: 250px;
+  color: white;
+  font-family: 'Roboto Condensed', sans-serif;
+}
+
+.validation-btns {
+  display: flex;
+  justify-content: center;
+  margin: 0px;
+  margin-top: 30px;
+}
+
+.btn {
+  margin-right: 20px;
+}
