@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import './App.css';
 
 import First from './pages/first'
-import SecNewPage from './pages/secnew'
+import Upload from './pages/upload'
 import StatusBar from './components/status_bar'
 
 class App extends Component {
@@ -10,26 +10,22 @@ class App extends Component {
   constructor(props) {
     super(props)
     this.state = {
-        current_page: 1,
+        current_page: null,
         projName: null,
-        userFile: null,
+        userFiles: [],
         userProj: null,
     }
-
-    this.update_page = this.update_page.bind(this)
     this.updateProjName = this.updateProjName.bind(this)
   }
 
-  update_page(page_id) {
-    this.setState({
-      current_page: page_id
-    })
-  }
 
   updateProjName(name) {
+    // Update project name and load next page
     this.setState({
-      projName: name
+      projName: name,
+      current_page: <Upload />
     })
+    console.log('App says: projName is', this.projName);
   }
 
   updateUserFile(filename) {
@@ -38,20 +34,13 @@ class App extends Component {
     })
   }
 
-  render_page(page_id) {
-    if (page_id === 1) return <First updatePage={this.update_page}/>
-
-    if (page_id === 21) return <SecNewPage
-                                updatePage={this.update_page}
-                                updateProjName={this.updateProjName}
-                                updateUserFile={this.updateUserFile}
-                              />
-
-
+  componentWillMount() {
+    this.setState({
+      current_page: <First update={this.updateProjName}/>
+    })
   }
 
   render() {
-    console.log(this.state);
     return (
       <div className="App">
         <header className="App-header">
@@ -61,15 +50,9 @@ class App extends Component {
         </header>
 
         <div>
-          {this.render_page(this.state.current_page)}
+          {this.state.current_page}
         </div>
 
-        <div className="nav-btns">
-          <div>Previous</div>
-          <div className="empty"></div>
-          <div>Next</div>
-        </div>
-        
       </div>
     );
   }

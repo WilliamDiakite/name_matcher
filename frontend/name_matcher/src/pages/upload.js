@@ -9,31 +9,21 @@ import TextField from '@material-ui/core/TextField';
 
 import Dropzone from '../../node_modules/react-dropzone';
 
-export default class SecNewPage extends Component {
-
+export default class Upload extends Component {
 
   onDrop(files) {
     console.log(files);
-
+    console.log('path: ',files[0].path);
     this.setState({
       files
     });
   }
 
-
   render () {
 
     return(
       <div className="page">
-        <h2>2. Create project:</h2>
-        <div className="field">
-          <TextField
-            id="standard-dense"
-            label="Project name"
-            margin="dense"
-            onChange={this.update_projName}
-          />
-        </div>
+        <h2>2. Upload your files</h2>
 
         <div className='dropzone-container'>
           <Dropzone
